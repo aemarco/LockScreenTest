@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <OutputType>WinExe</OutputType>
-    <TargetFramework>net5.0-windows10.0.19041.0</TargetFramework>
+    <TargetFrameworks>net5.0-windows10.0.19041.0;netcoreapp3.1</TargetFrameworks>
     <UseWPF>true</UseWPF>
   </PropertyGroup>
 
@@ -16,4 +16,12 @@
     </Content>
   </ItemGroup>
 
+  <!-- Conditionally obtain references for the SDK.Contracts when targeting netcore3.1-->
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netcoreapp3.1' ">
+    <PackageReference Include="Microsoft.Windows.SDK.Contracts" Version="10.0.19041.1" />	
+  </ItemGroup>
+
 </Project>
+
+
+
